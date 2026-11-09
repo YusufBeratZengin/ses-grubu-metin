@@ -1,0 +1,125 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ses-grubu-metin"
+version = "0.1.0"
+description = "Turkish phonics-based word/sentence generator for 1st grade literacy teachers"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [
+    {name = "Yusuf Berat Zengin", email = "118852217+YusufBeratZengin@users.noreply.github.com"}
+]
+maintainers = [
+    {name = "Yusuf Berat Zengin", email = "118852217+YusufBeratZengin@users.noreply.github.com"}
+]
+keywords = ["education", "turkish", "literacy", "phonics", "teachers", "first-grade"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Education",
+    "License :: OSI Approved :: MIT License",
+    "Natural Language :: Turkish",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Education",
+    "Topic :: Text Processing :: Linguistic",
+]
+dependencies = []
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.0",
+    "pytest-cov>=4.1.0",
+    "ruff>=0.5.0",
+    "mypy>=1.10.0",
+    "build>=1.0.0",
+    "twine>=5.0.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/YusufBeratZengin/ses-grubu-metin"
+Repository = "https://github.com/YusufBeratZengin/ses-grubu-metin"
+Issues = "https://github.com/YusufBeratZengin/ses-grubu-metin/issues"
+Documentation = "https://github.com/YusufBeratZengin/ses-grubu-metin#readme"
+Changelog = "https://github.com/YusufBeratZengin/ses-grubu-metin/blob/main/CHANGELOG.md"
+
+[project.scripts]
+ses-grubu-metin = "ses_grubu.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["ses_grubu*"]
+
+[tool.setuptools.package-data]
+"ses_grubu" = ["veri/*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = "-v --cov=ses_grubu --cov-report=term-missing --cov-report=xml"
+filterwarnings = [
+    "ignore::DeprecationWarning",
+]
+
+[tool.ruff]
+target-version = "py310"
+line-length = 100
+indent-width = 4
+
+[tool.ruff.lint]
+select = [
+    "E",   # pycodestyle errors
+    "W",   # pycodestyle warnings
+    "F",   # pyflakes
+    "I",   # isort
+    "B",   # flake8-bugbear
+    "C4",  # flake8-comprehensions
+    "UP",  # pyupgrade
+]
+ignore = [
+    "E501",  # line too long (handled by formatter)
+]
+fixable = ["I", "F", "UP"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
+line-ending = "lf"
+
+[tool.mypy]
+python_version = "3.10"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+check_untyped_defs = true
+no_implicit_optional = true
+strict = true
+exclude = [
+    "tests/",
+    ".venv/",
+    "build/",
+    "dist/",
+]
+
+[tool.coverage.run]
+source = ["src/ses_grubu"]
+omit = ["tests/*", "*/__pycache__/*"]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "raise AssertionError",
+    "raise NotImplementedError",
+    "if __name__ == .__main__.:",
+]
+precision = 2

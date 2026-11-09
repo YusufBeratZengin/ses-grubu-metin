@@ -1,0 +1,115 @@
+# ses-grubu-metin · çekirdek cümle sözlüğü
+# Biçim: <tür> <boşluk> <kelime>
+# Her kelime tek türde bulunur. Türler:
+#   kisi            tekil insan özne (okuma/yazma yapabilir)
+#   hayvan          tekil hayvan özne (okuma/yazma yapmaz)
+#   yiyecek         yenebilen nesne
+#   icecek          içilebilen nesne
+#   okunacak        okunabilen/yazılabilen nesne
+#   esya            elde tutulan, atılan oyuncak/araç
+#   zarf            -e durum ekli yer zarfı ("eve", "okula")
+#   fiil            3. tekil, nesnesiz eylem
+#   gidis           3. tekil, yer zarfıyla kullanılan eylem
+#   yeme/icme/okuma/yazma/tutma/atma/sevme
+#                   3. tekil, yalnız eşleştiği nesne sınıfıyla kullanılan eylem
+#   emir            emir kipi, nesnesiz
+#   emir_gidis      emir kipi, yer zarfıyla
+#   emir_yeme / emir_icme / emir_okunacak / emir_esya
+#                   emir kipi, yalnız eşleştiği nesne sınıfıyla
+# Şablonlar yalnız bu etiketlerle uyumlu kelimeleri bir araya getirir.
+# Liste bu projeye aittir (MIT); kaynak sözlükten türetilmemiştir.
+
+# Özneler: okuma/yazma gibi okul eylemlerini yapan insanlar
+kisi ali
+kisi ayşe
+kisi ela
+kisi veli
+kisi can
+kisi dede
+kisi anne
+kisi çocuk
+kisi öğretmen
+kisi arkadaş
+
+# Özneler: hayvanlar (okuma/yazma dışındaki eylemler)
+hayvan kedi
+hayvan kuş
+hayvan inek
+hayvan kuzu
+
+# Nesne sınıfları
+yiyecek elma
+yiyecek armut
+yiyecek üzüm
+yiyecek ekmek
+yiyecek bal
+yiyecek et
+yiyecek tuz
+yiyecek un
+
+icecek süt
+icecek su
+
+okunacak kitap
+okunacak defter
+
+esya top
+esya kalem
+esya ip
+esya çiçek
+esya silgi
+
+# 3. tekil, nesnesiz eylemler
+fiil uyur
+fiil oturur
+fiil kalkar
+
+# 3. tekil, yer zarfıyla kullanılan eylemler
+gidis gider
+gidis gelir
+gidis koşar
+gidis uçar
+gidis yürür
+gidis yüzer
+gidis bakar
+
+# 3. tekil, nesne sınıfına bağlı eylemler
+yeme yer
+icme içer
+okuma okur
+yazma yazar
+tutma tutar
+atma atar
+sevme sever
+
+# Emir kipi, nesnesiz
+emir otur
+emir uyu
+emir bak
+emir kalk
+
+# Emir kipi, yer zarfıyla
+emir_gidis gel
+emir_gidis koş
+emir_gidis yürü
+
+# Emir kipi, nesne sınıfına bağlı
+emir_yeme ye
+emir_icme iç
+emir_okunacak oku
+emir_okunacak yaz
+emir_esya al
+emir_esya ver
+emir_esya tut
+emir_esya at
+
+# Yer zarfları
+zarf eve
+zarf okula
+zarf bahçeye
+zarf yere
+zarf denize
+zarf parka
+zarf kapıya
+zarf yola
+zarf köye
